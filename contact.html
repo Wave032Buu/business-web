@@ -1,0 +1,103 @@
+ได้เลยครับ นี่คือไฟล์ contact.html สำหรับหน้า "ติดต่อเรา"
+
+ในหน้านี้ผมได้ใส่ฟอร์มรับข้อมูล (<form>) และใช้ <iframe> สำหรับดึงแผนที่ Google Maps มาแสดงตามที่คุณต้องการครับ
+
+HTML
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ติดต่อเรา - Card Master Shop</title>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">หน้าแรก</a> | 
+        <a href="about.html">เกี่ยวกับเรา</a> | 
+        <a href="services.html">บริการ</a> |
+        <b>ติดต่อเรา</b>
+    </nav>
+
+    <hr>
+
+    <header>
+        <h1>ติดต่อเรา (Contact Us)</h1>
+        <p>หากมีข้อสงสัยเกี่ยวกับสินค้า หรือต้องการจองโต๊ะแข่ง ติดต่อเราได้ทันที</p>
+    </header>
+
+    <hr>
+
+    <section>
+        <h2>แบบฟอร์มติดต่อสอบถาม</h2>
+        
+        <form action="#" method="post">
+            
+            <label for="fullname">ชื่อ - นามสกุล:</label><br>
+            <input type="text" id="fullname" name="fullname" placeholder="ระบุชื่อของคุณ" size="40" required>
+            <br><br>
+
+            <label for="email">อีเมล:</label><br>
+            <input type="email" id="email" name="email" placeholder="example@email.com" size="40" required>
+            <br><br>
+
+            <label for="topic">เรื่องที่ต้องการติดต่อ:</label><br>
+            <select id="topic" name="topic">
+                <option value="buy">สอบถามสินค้า/สั่งซื้อ</option>
+                <option value="sell">ต้องการขายการ์ด/เทรด</option>
+                <option value="tournament">สมัครแข่ง/จองโต๊ะ</option>
+                <option value="other">อื่นๆ</option>
+            </select>
+            <br><br>
+
+            <label for="message">ข้อความ:</label><br>
+            <textarea id="message" name="message" rows="5" cols="45" placeholder="พิมพ์ข้อความของคุณที่นี่..."></textarea>
+            <br><br>
+
+            <input type="submit" value="ส่งข้อความ">
+            <input type="reset" value="ล้างข้อมูล">
+        </form>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>ข้อมูลการติดต่อ</h2>
+        <p><strong>Card Master Shop (สาขาหลัก)</strong></p>
+        <p>
+            ชั้น 3, ห้างสรรพสินค้า Mega Plaza สะพานเหล็ก <br>
+            ถนนมหาไชย แขวงวังบูรพาภิรมย์ <br>
+            เขตพระนคร กรุงเทพมหานคร 10200
+        </p>
+        <p><strong>โทรศัพท์:</strong> 089-999-8888</p>
+        <p><strong>Email:</strong> support@cardmastershop.com</p>
+        <p><strong>เวลาทำการ:</strong> เปิดทุกวัน 10.30 - 20.00 น.</p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>แผนที่ร้าน (Map)</h2>
+        <p>เดินทางสะดวกด้วยรถไฟฟ้า MRT สถานีสามยอด (ทางออก 1)</p>
+        
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.766866750036!2d100.50090331483015!3d13.74495399035341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2992110c0e767%3A0xc34a663953683f12!2sMega%20Plaza%20Saphan%20Lek!5e0!3m2!1sen!2sth!4v1678901234567!5m2!1sen!2sth" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <br>
+    <hr>
+
+    <footer>
+        <p><a href="index.html">กลับไปหน้าแรก</a></p>
+        <p>&copy; 2024 Card Master Shop</p>
+    </footer>
+
+</body>
+</html>
