@@ -1,0 +1,614 @@
+
+/* ===========================================
+   RESET & VARIABLES (THEME: BLACK & GOLD)
+   =========================================== */
+:root {
+  /* Main Colors */
+  --color-primary: #000000;       /* สีดำสนิท (สำหรับ Header/Footer) */
+  --color-secondary: #1c1c1c;     /* สีเทาเข้มเกือบดำ (สำหรับพื้นหลังรอง) */
+  
+  /* Accent Colors (Gold) */
+  --color-accent: #d4af37;        /* สีทอง (Metallic Gold) */
+  --color-accent-dark: #b8860b;   /* สีทองเข้ม (สำหรับตอน Hover) */
+  
+  /* Background & Text */
+  --color-neutral-light: #121212; /* สีพื้นหลังเว็บ (Soft Black) */
+  --color-card-bg: #1e1e1e;       /* สีพื้นหลังกล่องการ์ด */
+  --color-text: #e0e0e0;          /* สีตัวหนังสือหลัก (ขาวควันบุหรี่) */
+  --color-text-light: #aaaaaa;    /* สีตัวหนังสือรอง (เทาอ่อน) */
+  --color-white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-neutral-light); /* พื้นหลังดำ */
+}
+
+/* ===========================================
+   TYPOGRAPHY
+   =========================================== */
+h1, h2, h3, h4 {
+  color: var(--color-accent); /* หัวข้อเป็นสีทอง */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  border-bottom: 2px solid var(--color-secondary);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+h3 {
+  font-size: 1.5rem;
+  color: var(--color-white); /* หัวข้อย่อยเป็นสีขาว */
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+p {
+  margin-bottom: 1rem;
+  color: var(--color-text-light);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+a:hover {
+  color: var(--color-white);
+  text-decoration: underline;
+}
+
+#Namehero {
+  color: var(--color-accent);
+  font-weight: bold;
+  text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.5); /* เรืองแสงสีทอง */
+}
+
+/* ===========================================
+   LAYOUT
+   =========================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+.section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===========================================
+   ID SELECTORS
+   =========================================== */
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-primary); /* สีดำ */
+  border-bottom: 2px solid var(--color-accent); /* ขีดเส้นใต้สีทอง */
+  color: var(--color-white);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#header h1 {
+  color: var(--color-accent);
+  font-size: 1.8rem;
+  text-shadow: none;
+  margin-bottom: 0;
+}
+
+#footer {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+}
+
+/* ===========================================
+   PSEUDO-CLASSES
+   =========================================== */
+ul li:first-child {
+  font-weight: 600;
+}
+ul li:last-child {
+  border-bottom: none;
+}
+a:active {
+  color: var(--color-accent-dark);
+}
+.card:focus-within {
+  outline: 2px solid var(--color-accent);
+}
+
+/* ===========================================
+   COMPONENTS
+   =========================================== */
+/* Hero */
+.hero {
+  min-height: 100vh;
+  /* Gradient สีดำ-ทอง */
+  background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.9),
+      rgba(20, 20, 20, 0.85),
+      rgba(184, 134, 11, 0.3) 
+    ),
+    url("../images/hero-bg.jpg") center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 60px 20px;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--color-accent);
+  text-shadow: 2px 2px 4px #000;
+}
+.hero p {
+  font-size: 1.35rem;
+  color: #ddd;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Card (Generic) */
+.card {
+  background: var(--color-card-bg); /* พื้นหลังการ์ดสีดำเทา */
+  padding: 20px;
+  margin: 10px 0;
+  border: 1px solid #333; /* ขอบสีเทาเข้ม */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  border-color: var(--color-accent); /* เอาเมาส์ชี้แล้วขอบเป็นสีทอง */
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent); /* ปุ่มสีทอง */
+  color: #000; /* ตัวหนังสือสีดำ (เพื่อให้อ่านง่ายบนสีทอง) */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); /* เรืองแสง */
+}
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* ===========================================
+   NAVIGATION
+   =========================================== */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+}
+nav ul li a {
+  display: block;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--color-white);
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+nav ul li a:hover {
+  background: var(--color-accent);
+  color: #000; /* Hover แล้วตัวหนังสือดำ */
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+footer nav a {
+  background: #333;
+  color: var(--color-accent);
+}
+footer nav a:hover {
+  background: var(--color-accent);
+  color: #000;
+}
+
+/* ===========================================
+   SERVICES & TEAM
+   =========================================== */
+.services {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.service-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background: var(--color-card-bg); /* พื้นหลังการ์ดสีดำเทา */
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border-color: var(--color-accent);
+}
+.service-card h3 {
+  color: var(--color-accent); /* หัวข้อบริการสีทอง */
+  margin-bottom: 1rem;
+}
+
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 2rem 0;
+}
+.team-member {
+  background: var(--color-card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-member:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  border: 3px solid var(--color-accent); /* กรอบรูปสีทอง */
+}
+.team-member h3 {
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+}
+.team-member p {
+  color: var(--color-accent); /* ตำแหน่งงานสีทอง */
+  font-style: italic;
+}
+
+/* ===========================================
+   FORM
+   =========================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--color-card-bg); /* พื้นหลังฟอร์มมืด */
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+form label {
+  font-weight: 500;
+  color: var(--color-accent);
+}
+form input[type="text"],
+form input[type="email"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #111; /* ช่องกรอกสีดำ */
+  color: #fff; /* พิมพ์ตัวหนังสือสีขาว */
+}
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+form input[type="submit"] {
+  padding: 12px 24px;
+  background: var(--color-accent);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+}
+form input[type="submit"]:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+
+/* ===========================================
+   TABLE
+   =========================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: var(--color-card-bg);
+  border: 1px solid #333;
+}
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+  color: var(--color-text);
+}
+table th {
+  background: var(--color-accent); /* หัวตารางสีทอง */
+  color: #000; /* ตัวหนังสือหัวตารางสีดำ */
+  font-weight: 700;
+}
+table tbody tr:hover {
+  background: rgba(212, 175, 55, 0.1); /* ไฮไลท์แถวเป็นสีทองจางๆ */
+}
+
+/* ===========================================
+   FIXED ELEMENTS
+   =========================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--color-accent);
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  transition: all 0.3s;
+}
+.back-to-top:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.chat-widget {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #333;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+  transition: all 0.3s;
+}
+.chat-widget:hover {
+  background: var(--color-accent);
+  color: #000;
+  transform: scale(1.1);
+}
+
+/* ===========================================
+   UTILITIES
+   =========================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.logo {
+  width: 300px;
+}
+.logo-center {
+  width: 300px;
+  margin: 0 auto;
+}
+
+/* ===========================================
+   RESPONSIVE / MEDIA QUERIES
+   =========================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  #header {
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  #header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-accent); /* มือถือมีขอบทองให้เห็นชัด */
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .services {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .team {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  table th,
+  table td {
+    padding: 8px 10px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  #header h1 {
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    gap: 0.3rem;
+  }
+
+  nav ul li a {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .hero {
+    min-height: 80vh;
+    padding: 40px 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .chat-widget {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    bottom: 80px;
+    right: 20px;
+  }
+
+  form {
+    padding: 1rem;
+  }
+}
